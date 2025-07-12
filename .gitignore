@@ -42,7 +42,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-#model
-cctv files\res+aug.keras
-cctv files\resnet77.keras
-cctv files\yolov8n.pt
+# Model files
+cctv files/res+aug.keras
+cctv files/resnet77.keras
+cctv files/yolov8n.pt
