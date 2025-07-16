@@ -1,6 +1,6 @@
 # 🔐 W-Secure
 
-**W-Secure** is a hybrid project and a team efforts by our contributers that combines mobile app-based safety features with AI-powered CCTV surveillance to enhance women's safety in public and private spaces.
+**W-Secure** is a hybrid project that combines mobile app-based safety features with AI-powered CCTV surveillance to enhance women's safety in public and private spaces.
 
 ---
 
