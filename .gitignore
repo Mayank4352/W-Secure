@@ -30,6 +30,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+lib\firebase_options.dart
 
 # Symbolication related
 app.*.symbols
@@ -41,3 +42,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Model files
+cctv files/res+aug.keras
+cctv files/resnet77.keras
+cctv files/yolov8n.pt
