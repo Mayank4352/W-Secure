@@ -12,6 +12,7 @@ class SafeSpotsRepository {
 
   final AssetBundle _bundle;
 
+  // Static seed data; will be replaced by a live API once access is granted.
   Future<List<SafeSpot>> fetchNearby() async {
     final rows = await loadJsonArray(_bundle, 'assets/data/safe_spots.json');
     return rows.map(SafeSpot.fromJson).toList();
