@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Omaxe Connaught Place Mall",
+    "distanceKm": 3,
+    "contact": "01204567890",
+    "openingTime": "10:00",
+    "closingTime": "22:00"
+  },
+  {
+    "name": "Yatharth Super Speciality Hospital",
+    "distanceKm": 5,
+    "contact": "01204561234",
+    "openingTime": "00:00",
+    "closingTime": "23:59"
+  },
+  {
+    "name": "Gaur City Mall",
+    "distanceKm": 8,
+    "contact": "01204567891",
+    "openingTime": "10:00",
+    "closingTime": "22:00"
+  },
+  {
+    "name": "Sharda Hospital",
+    "distanceKm": 6,
+    "contact": "01204567892",
+    "openingTime": "00:00",
+    "closingTime": "23:59"
+  }
+]

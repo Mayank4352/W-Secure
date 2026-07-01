@@ -59,5 +59,4 @@ class DefaultFirebaseOptions {
     projectId: 'security-9c8f1',
     storageBucket: 'security-9c8f1.firebasestorage.app',
   );
-
 }
