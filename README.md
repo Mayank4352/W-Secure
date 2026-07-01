@@ -39,8 +39,9 @@ The backend AI system is designed to integrate with CCTV feeds in public spaces 
 ## 🧩 Tech Stack
 
 ### 📱 Mobile App:
-- **Platform**: Android (Java/Kotlin/Flutter)
-- **Backend**: Firebase (Realtime DB, Storage, Authentication)
+- **Platform**: Flutter (Android)
+- **Architecture**: Feature-based MVVM with Riverpod for state management and `go_router` for navigation
+- **Backend**: Firebase (Firestore, Storage, Authentication)
 - **APIs**: Google Maps, Geolocation Services
 - **Cloud**: Firebase/Google Cloud for media storage
 
@@ -52,11 +53,25 @@ The backend AI system is designed to integrate with CCTV feeds in public spaces 
 
 ---
 
+## 🧪 Testing
+
+Unit tests cover the models, repositories, and view-models feature by feature
+(`profile`, `alerts`, `police_stations`, `safe_spots`, `auth`, `home`) plus the
+shared `core` utilities. Firebase and platform dependencies are replaced with
+in-memory fakes, so the suite runs without any device or network:
+
+```bash
+flutter test
+```
+
+---
+
 ## 🚧 Current Work & Future Plans
 
 - [x] Implement background video recording with stealth mode.
 - [x] Enable live SOS location sharing.
 - [x] Integrate Safe Space tagging on maps.
+- [x] Add unit tests across features (models, repositories, view-models).
 - [ ] Make Safe Space detection more dynamic using clustering and live crowd data.
 - [ ] Deploy AI model on edge devices/CCTV systems.
 - [ ] Improve gesture recognition accuracy.
