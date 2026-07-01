@@ -45,10 +45,13 @@ class ProfileRepository {
   }) async {
     final user = _auth.currentUser;
     if (user == null) return;
-    await _firestore.collection('users').doc(user.uid).update({
-      'name': name,
-      'emergencyContact': emergencyContact,
-    });
+    await _firestore.collection('users').doc(user.uid).set(
+      {
+        'name': name,
+        'emergencyContact': emergencyContact,
+      },
+      SetOptions(merge: true),
+    );
   }
 
   Future<String> uploadProfilePicture(File image) async {
@@ -61,7 +64,7 @@ class ProfileRepository {
     await _firestore
         .collection('users')
         .doc(user.uid)
-        .update({'profilePicture': url});
+        .set({'profilePicture': url}, SetOptions(merge: true));
     return url;
   }
 }
