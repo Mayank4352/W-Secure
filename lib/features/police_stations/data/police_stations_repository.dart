@@ -12,6 +12,7 @@ class PoliceStationsRepository {
 
   final AssetBundle _bundle;
 
+  // Static seed data; will be replaced by a live API once access is granted.
   Future<List<PoliceStation>> fetchNearby() async {
     final rows =
         await loadJsonArray(_bundle, 'assets/data/police_stations.json');

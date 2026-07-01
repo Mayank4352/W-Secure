@@ -27,6 +27,7 @@ class AlertsRepository {
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;
 
+  // Static seed data; will be replaced by a live API once access is granted.
   Future<List<NearbyAlert>> fetchNearby() async {
     final rows = await loadJsonArray(_bundle, 'assets/data/nearby_alerts.json');
     return rows.map(NearbyAlert.fromJson).toList();
