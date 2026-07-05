@@ -52,7 +52,7 @@ dependencies:
   path_provider: ^2.1.5
   photo_manager: ^3.6.2
   location: ^8.0.0
-  telephony: ^0.2.0
+  telephony:
 
   # State management + routing
   flutter_riverpod: ^2.6.1
