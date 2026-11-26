@@ -14,20 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SafeSpot _$SafeSpotFromJson(Map<String, dynamic> json) {
-  return _SafeSpot.fromJson(json);
-}
-
 /// @nodoc
 mixin _$SafeSpot {
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get distanceKm => throw _privateConstructorUsedError;
-  String get contact => throw _privateConstructorUsedError;
-  String get openingTime => throw _privateConstructorUsedError;
-  String get closingTime => throw _privateConstructorUsedError;
+  double get latitude => throw _privateConstructorUsedError;
+  double get longitude => throw _privateConstructorUsedError;
 
-  /// Serializes this SafeSpot to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  /// Straight-line distance from the user's current position.
+  double get distanceKm => throw _privateConstructorUsedError;
+  SafeSpotCategory get category => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
 
   /// Create a copy of SafeSpot
   /// with the given fields replaced by the non-null parameter values.
@@ -42,11 +39,13 @@ abstract class $SafeSpotCopyWith<$Res> {
       _$SafeSpotCopyWithImpl<$Res, SafeSpot>;
   @useResult
   $Res call(
-      {String name,
-      int distanceKm,
-      String contact,
-      String openingTime,
-      String closingTime});
+      {String id,
+      String name,
+      double latitude,
+      double longitude,
+      double distanceKm,
+      SafeSpotCategory category,
+      String? address});
 }
 
 /// @nodoc
@@ -64,33 +63,43 @@ class _$SafeSpotCopyWithImpl<$Res, $Val extends SafeSpot>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
+    Object? latitude = null,
+    Object? longitude = null,
     Object? distanceKm = null,
-    Object? contact = null,
-    Object? openingTime = null,
-    Object? closingTime = null,
+    Object? category = null,
+    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
       distanceKm: null == distanceKm
           ? _value.distanceKm
           : distanceKm // ignore: cast_nullable_to_non_nullable
-              as int,
-      contact: null == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as String,
-      openingTime: null == openingTime
-          ? _value.openingTime
-          : openingTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      closingTime: null == closingTime
-          ? _value.closingTime
-          : closingTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as SafeSpotCategory,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -104,11 +113,13 @@ abstract class _$$SafeSpotImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
-      int distanceKm,
-      String contact,
-      String openingTime,
-      String closingTime});
+      {String id,
+      String name,
+      double latitude,
+      double longitude,
+      double distanceKm,
+      SafeSpotCategory category,
+      String? address});
 }
 
 /// @nodoc
@@ -124,65 +135,80 @@ class __$$SafeSpotImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
+    Object? latitude = null,
+    Object? longitude = null,
     Object? distanceKm = null,
-    Object? contact = null,
-    Object? openingTime = null,
-    Object? closingTime = null,
+    Object? category = null,
+    Object? address = freezed,
   }) {
     return _then(_$SafeSpotImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
       distanceKm: null == distanceKm
           ? _value.distanceKm
           : distanceKm // ignore: cast_nullable_to_non_nullable
-              as int,
-      contact: null == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as String,
-      openingTime: null == openingTime
-          ? _value.openingTime
-          : openingTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      closingTime: null == closingTime
-          ? _value.closingTime
-          : closingTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as SafeSpotCategory,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$SafeSpotImpl extends _SafeSpot {
   const _$SafeSpotImpl(
-      {required this.name,
+      {required this.id,
+      required this.name,
+      required this.latitude,
+      required this.longitude,
       required this.distanceKm,
-      required this.contact,
-      required this.openingTime,
-      required this.closingTime})
+      required this.category,
+      this.address})
       : super._();
 
-  factory _$SafeSpotImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SafeSpotImplFromJson(json);
-
+  @override
+  final String id;
   @override
   final String name;
   @override
-  final int distanceKm;
+  final double latitude;
   @override
-  final String contact;
+  final double longitude;
+
+  /// Straight-line distance from the user's current position.
   @override
-  final String openingTime;
+  final double distanceKm;
   @override
-  final String closingTime;
+  final SafeSpotCategory category;
+  @override
+  final String? address;
 
   @override
   String toString() {
-    return 'SafeSpot(name: $name, distanceKm: $distanceKm, contact: $contact, openingTime: $openingTime, closingTime: $closingTime)';
+    return 'SafeSpot(id: $id, name: $name, latitude: $latitude, longitude: $longitude, distanceKm: $distanceKm, category: $category, address: $address)';
   }
 
   @override
@@ -190,20 +216,22 @@ class _$SafeSpotImpl extends _SafeSpot {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SafeSpotImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude) &&
             (identical(other.distanceKm, distanceKm) ||
                 other.distanceKm == distanceKm) &&
-            (identical(other.contact, contact) || other.contact == contact) &&
-            (identical(other.openingTime, openingTime) ||
-                other.openingTime == openingTime) &&
-            (identical(other.closingTime, closingTime) ||
-                other.closingTime == closingTime));
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.address, address) || other.address == address));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, distanceKm, contact, openingTime, closingTime);
+  int get hashCode => Object.hash(runtimeType, id, name, latitude, longitude,
+      distanceKm, category, address);
 
   /// Create a copy of SafeSpot
   /// with the given fields replaced by the non-null parameter values.
@@ -212,37 +240,35 @@ class _$SafeSpotImpl extends _SafeSpot {
   @pragma('vm:prefer-inline')
   _$$SafeSpotImplCopyWith<_$SafeSpotImpl> get copyWith =>
       __$$SafeSpotImplCopyWithImpl<_$SafeSpotImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SafeSpotImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SafeSpot extends SafeSpot {
   const factory _SafeSpot(
-      {required final String name,
-      required final int distanceKm,
-      required final String contact,
-      required final String openingTime,
-      required final String closingTime}) = _$SafeSpotImpl;
+      {required final String id,
+      required final String name,
+      required final double latitude,
+      required final double longitude,
+      required final double distanceKm,
+      required final SafeSpotCategory category,
+      final String? address}) = _$SafeSpotImpl;
   const _SafeSpot._() : super._();
 
-  factory _SafeSpot.fromJson(Map<String, dynamic> json) =
-      _$SafeSpotImpl.fromJson;
-
+  @override
+  String get id;
   @override
   String get name;
   @override
-  int get distanceKm;
+  double get latitude;
   @override
-  String get contact;
+  double get longitude;
+
+  /// Straight-line distance from the user's current position.
   @override
-  String get openingTime;
+  double get distanceKm;
   @override
-  String get closingTime;
+  SafeSpotCategory get category;
+  @override
+  String? get address;
 
   /// Create a copy of SafeSpot
   /// with the given fields replaced by the non-null parameter values.

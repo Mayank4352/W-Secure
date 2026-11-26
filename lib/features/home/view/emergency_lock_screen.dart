@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -31,7 +32,7 @@ class _EmergencyLockScreenState extends ConsumerState<EmergencyLockScreen> {
         (storedPin?.isNotEmpty ?? false) ? storedPin! : _defaultPin;
     if (!mounted) return;
 
-    if (_password.text == expected) {
+    if (_password.text.trim() == expected.trim()) {
       ref.read(homeViewModelProvider.notifier).stopEmergencyMode();
       context.pop();
     } else {
@@ -72,6 +73,8 @@ class _EmergencyLockScreenState extends ConsumerState<EmergencyLockScreen> {
                   TextField(
                     controller: _password,
                     obscureText: true,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     decoration: const InputDecoration(
                       labelText: 'Enter Password to Exit',
                       labelStyle: TextStyle(color: Colors.white),

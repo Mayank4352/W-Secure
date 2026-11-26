@@ -61,7 +61,8 @@ class _SetPinScreenState extends ConsumerState<SetPinScreen> {
           ),
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+          child: Padding(
         padding: EdgeInsets.symmetric(horizontal: size.width * 0.08),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -121,7 +122,7 @@ class _SetPinScreenState extends ConsumerState<SetPinScreen> {
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }

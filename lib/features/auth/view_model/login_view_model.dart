@@ -4,8 +4,6 @@ import '../data/auth_repository.dart';
 
 part 'generated/login_view_model.g.dart';
 
-/// Exposes the in-flight state of the login form; navigation on success is
-/// driven by the router's auth redirect.
 @riverpod
 class LoginViewModel extends _$LoginViewModel {
   @override

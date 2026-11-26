@@ -1,16 +1,36 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../core/models/place_result.dart';
+import '../../../core/utils/distance_format.dart';
+
 part 'generated/police_station.freezed.dart';
-part 'generated/police_station.g.dart';
 
 @freezed
 class PoliceStation with _$PoliceStation {
+  const PoliceStation._();
+
   const factory PoliceStation({
+    required String id,
     required String name,
-    required int distanceKm,
-    required String contact,
+    required double latitude,
+    required double longitude,
+
+    required double distanceKm,
+    String? address,
   }) = _PoliceStation;
 
-  factory PoliceStation.fromJson(Map<String, dynamic> json) =>
-      _$PoliceStationFromJson(json);
+  factory PoliceStation.fromPlace(
+    PlaceResult place, {
+    required double distanceKm,
+  }) =>
+      PoliceStation(
+        id: place.id,
+        name: place.name,
+        latitude: place.latitude,
+        longitude: place.longitude,
+        distanceKm: distanceKm,
+        address: place.address,
+      );
+
+  String get distanceLabel => formatDistanceKm(distanceKm);
 }

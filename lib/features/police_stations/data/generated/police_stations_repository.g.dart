@@ -7,7 +7,7 @@ part of '../police_stations_repository.dart';
 // **************************************************************************
 
 String _$policeStationsRepositoryHash() =>
-    r'f575e3ef7f401f9057244be48f548a6bd37550db';
+    r'857da8d44d85d1080aa02326656fd1df299e475a';
 
 /// See also [policeStationsRepository].
 @ProviderFor(policeStationsRepository)

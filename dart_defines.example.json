@@ -1,0 +1,7 @@
+{
+  "MAPTILER_API_KEY": "paste-your-maptiler-key-here",
+  "MAPTILER_STYLE": "streets-v4",
+  "GOOGLE_MAPS_API_KEY": "paste-your-places-api-key-here",
+  "PLACES_BASE_URL": "https://places.googleapis.com",
+  "OVERPASS_BASE_URLS": "https://overpass-api.de,https://overpass.kumi.systems"
+}

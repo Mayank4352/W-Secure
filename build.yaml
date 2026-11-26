@@ -5,6 +5,7 @@ targets:
       json_serializable:
         generate_for:
           - lib/models/**.dart
+          - lib/core/models/**.dart
           - lib/features/**/model/**.dart
 
       # Place .freezed.dart in a `generated/` sibling next to each source.

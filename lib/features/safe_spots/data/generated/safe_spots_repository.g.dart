@@ -7,7 +7,7 @@ part of '../safe_spots_repository.dart';
 // **************************************************************************
 
 String _$safeSpotsRepositoryHash() =>
-    r'32124fc400ced8b8630e29700ef774c70de4f473';
+    r'a37daedf5454025c1e0cb2a1aec46a7b39e49842';
 
 /// See also [safeSpotsRepository].
 @ProviderFor(safeSpotsRepository)
