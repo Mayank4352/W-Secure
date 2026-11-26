@@ -14,18 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-PoliceStation _$PoliceStationFromJson(Map<String, dynamic> json) {
-  return _PoliceStation.fromJson(json);
-}
-
 /// @nodoc
 mixin _$PoliceStation {
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get distanceKm => throw _privateConstructorUsedError;
-  String get contact => throw _privateConstructorUsedError;
+  double get latitude => throw _privateConstructorUsedError;
+  double get longitude => throw _privateConstructorUsedError;
 
-  /// Serializes this PoliceStation to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  /// Straight-line distance from the user's current position.
+  double get distanceKm => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
 
   /// Create a copy of PoliceStation
   /// with the given fields replaced by the non-null parameter values.
@@ -40,7 +38,13 @@ abstract class $PoliceStationCopyWith<$Res> {
           PoliceStation value, $Res Function(PoliceStation) then) =
       _$PoliceStationCopyWithImpl<$Res, PoliceStation>;
   @useResult
-  $Res call({String name, int distanceKm, String contact});
+  $Res call(
+      {String id,
+      String name,
+      double latitude,
+      double longitude,
+      double distanceKm,
+      String? address});
 }
 
 /// @nodoc
@@ -58,23 +62,38 @@ class _$PoliceStationCopyWithImpl<$Res, $Val extends PoliceStation>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
+    Object? latitude = null,
+    Object? longitude = null,
     Object? distanceKm = null,
-    Object? contact = null,
+    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
       distanceKm: null == distanceKm
           ? _value.distanceKm
           : distanceKm // ignore: cast_nullable_to_non_nullable
-              as int,
-      contact: null == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -87,7 +106,13 @@ abstract class _$$PoliceStationImplCopyWith<$Res>
       __$$PoliceStationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, int distanceKm, String contact});
+  $Res call(
+      {String id,
+      String name,
+      double latitude,
+      double longitude,
+      double distanceKm,
+      String? address});
 }
 
 /// @nodoc
@@ -103,46 +128,72 @@ class __$$PoliceStationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
+    Object? latitude = null,
+    Object? longitude = null,
     Object? distanceKm = null,
-    Object? contact = null,
+    Object? address = freezed,
   }) {
     return _then(_$PoliceStationImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
       distanceKm: null == distanceKm
           ? _value.distanceKm
           : distanceKm // ignore: cast_nullable_to_non_nullable
-              as int,
-      contact: null == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$PoliceStationImpl implements _PoliceStation {
+
+class _$PoliceStationImpl extends _PoliceStation {
   const _$PoliceStationImpl(
-      {required this.name, required this.distanceKm, required this.contact});
+      {required this.id,
+      required this.name,
+      required this.latitude,
+      required this.longitude,
+      required this.distanceKm,
+      this.address})
+      : super._();
 
-  factory _$PoliceStationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PoliceStationImplFromJson(json);
-
+  @override
+  final String id;
   @override
   final String name;
   @override
-  final int distanceKm;
+  final double latitude;
   @override
-  final String contact;
+  final double longitude;
+
+  /// Straight-line distance from the user's current position.
+  @override
+  final double distanceKm;
+  @override
+  final String? address;
 
   @override
   String toString() {
-    return 'PoliceStation(name: $name, distanceKm: $distanceKm, contact: $contact)';
+    return 'PoliceStation(id: $id, name: $name, latitude: $latitude, longitude: $longitude, distanceKm: $distanceKm, address: $address)';
   }
 
   @override
@@ -150,15 +201,20 @@ class _$PoliceStationImpl implements _PoliceStation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PoliceStationImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude) &&
             (identical(other.distanceKm, distanceKm) ||
                 other.distanceKm == distanceKm) &&
-            (identical(other.contact, contact) || other.contact == contact));
+            (identical(other.address, address) || other.address == address));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, distanceKm, contact);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, latitude, longitude, distanceKm, address);
 
   /// Create a copy of PoliceStation
   /// with the given fields replaced by the non-null parameter values.
@@ -167,30 +223,32 @@ class _$PoliceStationImpl implements _PoliceStation {
   @pragma('vm:prefer-inline')
   _$$PoliceStationImplCopyWith<_$PoliceStationImpl> get copyWith =>
       __$$PoliceStationImplCopyWithImpl<_$PoliceStationImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PoliceStationImplToJson(
-      this,
-    );
-  }
 }
 
-abstract class _PoliceStation implements PoliceStation {
+abstract class _PoliceStation extends PoliceStation {
   const factory _PoliceStation(
-      {required final String name,
-      required final int distanceKm,
-      required final String contact}) = _$PoliceStationImpl;
+      {required final String id,
+      required final String name,
+      required final double latitude,
+      required final double longitude,
+      required final double distanceKm,
+      final String? address}) = _$PoliceStationImpl;
+  const _PoliceStation._() : super._();
 
-  factory _PoliceStation.fromJson(Map<String, dynamic> json) =
-      _$PoliceStationImpl.fromJson;
-
+  @override
+  String get id;
   @override
   String get name;
   @override
-  int get distanceKm;
+  double get latitude;
   @override
-  String get contact;
+  double get longitude;
+
+  /// Straight-line distance from the user's current position.
+  @override
+  double get distanceKm;
+  @override
+  String? get address;
 
   /// Create a copy of PoliceStation
   /// with the given fields replaced by the non-null parameter values.

@@ -6,7 +6,7 @@ part of '../home_view_model.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$homeViewModelHash() => r'916969766aeefdb220e7f6b21af7ec35e3d8ff3f';
+String _$homeViewModelHash() => r'ffee6c3daa16fe6d39443fd099452856e36184b2';
 
 /// Drives the SOS home actions. State is the current recording flag; the
 /// camera controller and emergency timer are internal. Kept alive so an

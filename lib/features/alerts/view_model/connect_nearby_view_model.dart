@@ -8,7 +8,6 @@ import '../data/alerts_repository.dart';
 
 part 'generated/connect_nearby_view_model.g.dart';
 
-/// Holds the location autocomplete suggestions for the connect-nearby form.
 @riverpod
 class ConnectNearbyViewModel extends _$ConnectNearbyViewModel {
   static final _dateFormat = DateFormat('dd-MM-yyyy');

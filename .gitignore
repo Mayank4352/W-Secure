@@ -50,3 +50,6 @@ cctv files/yolov8n.pt
 
 # Firebase config (generate locally via `flutterfire configure`)
 lib/firebase_options.dart
+
+# Build-time secrets (copy dart_defines.example.json and fill it in)
+dart_defines.json

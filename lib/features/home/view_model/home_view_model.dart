@@ -16,9 +16,6 @@ import '../../../core/services/location_service.dart';
 
 part 'generated/home_view_model.g.dart';
 
-/// Drives the SOS home actions. State is the current recording flag; the
-/// camera controller and emergency timer are internal. Kept alive so an
-/// in-progress recording or active emergency survives navigation.
 @Riverpod(keepAlive: true)
 class HomeViewModel extends _$HomeViewModel {
   CameraController? _camera;

@@ -4,7 +4,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'generated/secure_pin_store.g.dart';
 
-/// Persists the emergency-exit PIN in platform-encrypted local storage.
 class SecurePinStore {
   const SecurePinStore(this._storage);
 
